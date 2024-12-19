@@ -1,12 +1,15 @@
-//Practice Promise Chaining
+//Practice- Promise Chaining
+//Realizations:
+//resolve is what 'returns' to the next promise
+//To chain, need to return a value from 1 promise
+//          and accept it into the next
 
 import { rateOfSuccessCalculator, randomMillisecGenerator } from "./middleware.js"
 
 const c6 = document.querySelector('.js-container6');
 c6.innerHTML = 'Loading...'
 
-//Instagram Simulation
-
+//Instagram-type Simulation
 //First we need to fetch user
 
 function fetchUser(userID) {
@@ -20,7 +23,7 @@ function fetchUser(userID) {
     setTimeout(() => {
       if (rateOfSuccess > noUserRate) {
         c6.innerHTML = `<p>Found User with ID ${userID}</p>`;
-        resolve(userID); //Return the post ids
+        resolve(userID);
       }
       else if (rateOfSuccess <= noUserRate) reject(`No user with ID '${userID}' found`);
     }, milisecs);
@@ -44,13 +47,12 @@ function fetchPost(userID) {
     setTimeout(() => {
       if (rateOfSuccess > noPostsRate) {
         c6.innerHTML += `<p>Found posts 1, 2, 3 for userID ${userID}</p>`
-        resolve('Post1, Post 2, Post 3');  //Return the latest post
+        resolve('Post1, Post 2, Post 3');
       }
       else reject('User has no posts');
     }, milisecs);
   });
 };
-
 
 function displayPost(posts) {
   c6.innerHTML += `<p>Now Displaying: ${posts}</p>`;
