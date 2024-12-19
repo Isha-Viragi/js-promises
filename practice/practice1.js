@@ -2,6 +2,7 @@
 //Methods- Handlers
 
 const c1 = document.querySelector('.js-container1');
+c1.innerHTML = 'Loading...'
 
 const p1 = new Promise((resolve, reject) => {
   let timeoutId;
@@ -18,14 +19,16 @@ const p1 = new Promise((resolve, reject) => {
     else if (rateOfSuccess < 30)
       reject('Fail');
 
-  }, 3000);
+  }, 4000);
 })
 
-p1.then((message) => {
+p1.then((message) => {    //.then() handler
   c1.innerHTML += message
 })
-  .catch((message) => {
+  .catch((message) => {   //.catch() handler
     c1.innerHTML += message
   })
-
+  .finally(() => {
+    c1.innerHTML += `<div>And Finally... We are done<div>`
+  })
 
