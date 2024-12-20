@@ -21,12 +21,35 @@
 
 import { videos } from "./data/videos.js";
 import { video_stats } from "./data/video_stats.js";
+import { generateRandomMilisecs, simulateNetworkError, simulateServerError } from "./middleware.js";
 
-const video = videos.find((v) => {
-  return v.video_id === 1
-})
+const networkReason = 'Request rejected due to Network Error';
+const serverReason = 'Request rejected due to Server Error'
 
-console.log(video);
+
+function fetchVideoInfo(video_id) {
+
+  const milisecs = generateRandomMilisecs();
+  const networkError = simulateNetworkError();
+  const serverError = simulateServerError();
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const video = videos.find(v => v.video_id === video_id);
+      if (networkError) reject(networkReason);
+      else if (serverError) reject(serverReason);
+      else if (video) resolve(video);
+      else if (!video) reject(`Video with id ${video_id} not found`);
+    }, milisecs);
+  });
+};
+
+fetchVideoInfo(1)
+  .then(result => console.log(result))
+  .catch(error => console.log(error))
+
+
+
 
 
 
