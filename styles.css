@@ -1,0 +1,30 @@
+*{
+  font-family: Calibri, Helvetica, sans-serif;
+  margin: 0px;
+}
+
+body{
+  margin: 0px 40px;
+}
+
+.header{
+  background-color: rgb(255, 127, 127);
+  display: flex;
+  justify-content: center;
+}
+
+.website-title{
+  color: white;
+  margin-right: 26px;
+}
+
+.video-grid{
+  margin: 26px 0px;
+  background-color: rgb(198, 82, 82);
+  display: flex;
+  justify-content: start;
+}
+
+.thumbnail{
+  height: 420px;
+}

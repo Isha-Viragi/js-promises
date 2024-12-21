@@ -23,6 +23,7 @@ import { videos } from "./data/videos.js";
 import { video_stats } from "./data/video_stats.js";
 import { generateRandomMilisecs, simulateNetworkError, simulateServerError } from "./middleware.js";
 
+const videoGridContainer = document.querySelector('.js-video-grid');
 const networkReason = 'Request rejected due to Network Error';
 const serverReason = 'Request rejected due to Server Error'
 
@@ -45,8 +46,12 @@ function fetchVideoInfo(video_id) {
 };
 
 fetchVideoInfo(1)
-  .then(result => console.log(result))
-  .catch(error => console.log(error))
+  .then(result => {
+    videoGridContainer.innerHTML = `<img src="${result.video_url}" class="thumbnail">`
+  })
+  .catch(error => {
+    videoGridContainer.innerHTML = `<p>Error: ${error}</p>`
+  })
 
 
 
