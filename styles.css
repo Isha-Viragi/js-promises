@@ -27,4 +27,6 @@ body{
 
 .thumbnail{
   height: 420px;
+  width: 740px;
+  object-fit: cover;
 }

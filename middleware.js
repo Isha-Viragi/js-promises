@@ -2,8 +2,8 @@ export function generateRandomMilisecs() {
   return Math.ceil(Math.random() * 4000);
 }
 
-const chancesOfNetworkError = 30
-const chancesOfServerError = 30
+const chancesOfNetworkError = 10
+const chancesOfServerError = 10
 
 function simulateGenericError(chancesOfError) {
   const randomChance = Math.ceil(Math.random() * 100);
