@@ -7,12 +7,15 @@ body{
   margin: 0px 40px;
 }
 
+h1{
+  font-size: 38px;
+}
+
 .header{
   background-color: rgb(255, 127, 127);
   display: flex;
   justify-content: center;
 }
-
 .website-title{
   color: white;
   margin-right: 26px;
@@ -22,6 +25,8 @@ body{
   margin: 26px 0px;
   background-color: rgb(198, 82, 82);
   display: flex;
+  flex-direction: column;
+  gap: 26px;
   justify-content: start;
 }
 
@@ -29,4 +34,20 @@ body{
   height: 420px;
   width: 740px;
   object-fit: cover;
+}
+
+.video-stats{
+  display: flex;
+  flex-direction: row;
+}
+.video-stat{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgb(234, 156, 156);
+  padding: 8px 14px;
+}
+
+.icons{
+  height: 24px;
 }

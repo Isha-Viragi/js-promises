@@ -63,6 +63,17 @@ function fetchVideoStats(creatorId, videoId) {
   });
 };
 
+function displayVideoStats(data) {
+  const { likes, dislikes, views } = data;
+  return `
+  <section class="video-stats">
+  <span class="video-stat"><img class="icons" src="../assets/icons/thumbs-up.svg">${likes}</span>
+  <span class="video-stat"><img class="icons" src="../assets/icons/thumbs-down.svg">${dislikes}</span>
+  <span class="video-stat">${views} views</span>
+  </section>
+  `;
+}
+
 fetchVideoInfo(2, 1)
   .then(video => {
     videoGridContainer.innerHTML = `<img src="${video.videoUrl}" class="thumbnail">`;
@@ -70,6 +81,8 @@ fetchVideoInfo(2, 1)
   })
   .then(stats => {
     console.log(stats);
+    const statsHtml = displayVideoStats(stats);
+    videoGridContainer.innerHTML += statsHtml;
   })
   .catch(error => {
     videoGridContainer.innerHTML = `<p>Error: ${error}</p>`;
