@@ -29,8 +29,11 @@ const networkReason = 'Request rejected due to Network Error';
 const serverReason = 'Request rejected due to Server Error';
 const notFoundReason = 'Video Not Found';
 
+const creatorId = 1;
+const videoId = 1;
 
-function fetchVideoInfo(creatorId, videoId) {
+
+function fetchVideoInfo() {
 
   const milisecs = generateRandomMilisecs();
   const networkError = simulateNetworkError();
@@ -47,24 +50,20 @@ function fetchVideoInfo(creatorId, videoId) {
   });
 };
 
-function fetchVideoStats(creatorId, videoId) {
+function fetchVideoStats() {
 
   const milisecs = generateRandomMilisecs();
-  const networkError = simulateNetworkError();
-  const serverError = simulateServerError();
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const stats = videoStats.find(vs => vs.creatorId === creatorId && vs.videoId === videoId);
-      if (networkError) reject(networkReason);
-      else if (serverError) reject(serverReason);
       if (!stats) reject(notFoundReason);
       else if (stats) resolve(stats);
     }, milisecs);
   });
 };
 
-function fetchTrendingStat(creatorId, videoId) {
+function fetchTrendingStats() {
 
   const milisecs = generateRandomMilisecs();
 
@@ -88,28 +87,35 @@ function displayVideoStats(data) {
   `;
 }
 
-fetchVideoInfo(2, 1)
+
+
+
+fetchVideoInfo()
   .then(video => {
     videoGridContainer.innerHTML = `<img src="${video.videoUrl}" class="thumbnail">`;
     const date = video.uploadDate;
     console.log(date)
 
-    return fetchVideoStats(video.creatorId, video.videoId);
+    return Promise.all([
+      fetchVideoStats(),
+      fetchTrendingStats()
+    ])
+
   })
-  .then(stats => {
-    console.log(stats);
-    const statsHtml = displayVideoStats(stats);
-    videoGridContainer.innerHTML += statsHtml;
-    return fetchTrendingStat(stats.creatorId, stats.videoId);
+  .then(results => {
+    console.log(results);
+    // const statsHtml = displayVideoStats(stats);
+    // videoGridContainer.innerHTML += statsHtml;
+    // return fetchTrendingStats(stats.creatorId, stats.videoId);
   })
-  .then(trendingStat => {
-    let generatedHtml = ''
-    if (trendingStat.overallRank <= trendingStat.categoryRank)
-      generatedHtml = `#${trendingStat.overallRank} on Trending`
-    else if (trendingStat.categoryRank < trendingStat.overallRank)
-      generatedHtml = `#${trendingStat.categoryRank} on Trending for ${trendingStat.category}`
-    videoGridContainer.innerHTML += generatedHtml;
-  })
+  // .then(trendingStat => {
+  //   let generatedHtml = ''
+  //   if (trendingStat.overallRank <= trendingStat.categoryRank)
+  //     generatedHtml = `#${trendingStat.overallRank} on Trending`
+  //   else if (trendingStat.categoryRank < trendingStat.overallRank)
+  //     generatedHtml = `#${trendingStat.categoryRank} on Trending for ${trendingStat.category}`
+  //   videoGridContainer.innerHTML += generatedHtml;
+  // })
   .catch(error => {
     videoGridContainer.innerHTML = `<p>Error: ${error}</p>`;
   })
