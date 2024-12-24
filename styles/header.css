@@ -1,10 +1,43 @@
 .header {
-  background-color: rgb(255, 127, 127);
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+
+  height: 54px;
+  padding-top: 6px;
 }
 
-.website-title {
-  color: white;
+.left-section{
+  display: flex;
+  align-items: center;
+  margin-left: 46px;
+}
+.itube-logo{
+  height: 44px;
+  padding-bottom: 5px;
+}
+.itube-title {
   margin-right: 26px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.middle-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-input{
+  padding: 10px 20px;
+  min-width: 500px;
+  border: 1px solid rgb(183, 183, 183);
+  border-radius: 20px;
+}
+
+.right-section{
+
 }

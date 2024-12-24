@@ -1,12 +1,10 @@
 *{
-  font-family: Calibri, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   margin: 0px;
+  font-size: 16px;
 }
 
 body{
-  margin: 0px 40px;
+  margin: 0px 120px;
 }
 
-h1{
-  font-size: 38px;
-}
