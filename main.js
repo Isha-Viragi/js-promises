@@ -20,6 +20,7 @@
 //Random videos
 
 import { videos } from "./data/videos.js";
+import { creators } from "./data/creators.js";
 import { videoStats } from "./data/videoStats.js";
 import { trendingVideos } from "./data/trendingVideos.js";
 import { generateRandomMilisecs, simulateNetworkError, simulateServerError } from "./middleware.js";
@@ -76,6 +77,19 @@ function fetchTrendingStats() {
   });
 };
 
+function fetchCreatorInfo() {
+
+  const milisecs = generateRandomMilisecs();
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const creatorInfo = creators.find(creator => creator.creatorId === creatorId);
+      if (!creatorInfo) reject(notFoundReason);
+      else if (creatorId) resolve(creatorInfo);
+    }, milisecs);
+  });
+};
+
 function displayVideoStats(data) {
   const { likes, dislikes, views } = data;
   return `
@@ -85,9 +99,7 @@ function displayVideoStats(data) {
   <span class="video-stat">${views} views</span>
   </section>
   `;
-}
-
-
+};
 
 
 fetchVideoInfo()
@@ -97,6 +109,7 @@ fetchVideoInfo()
     console.log(date)
 
     return Promise.all([
+      fetchCreatorInfo(),
       fetchVideoStats(),
       fetchTrendingStats()
     ])
