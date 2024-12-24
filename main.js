@@ -21,6 +21,7 @@
 
 import { videos } from "./data/videos.js";
 import { videoStats } from "./data/videoStats.js";
+import { trendingVideos } from "./data/trendingVideos.js";
 import { generateRandomMilisecs, simulateNetworkError, simulateServerError } from "./middleware.js";
 
 const videoGridContainer = document.querySelector('.js-video-grid');
@@ -63,6 +64,19 @@ function fetchVideoStats(creatorId, videoId) {
   });
 };
 
+function fetchTrendingStat(creatorId, videoId) {
+
+  const milisecs = generateRandomMilisecs();
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const trendingStat = trendingVideos.find(video => video.creatorId === creatorId && video.videoId === videoId);
+      if (!trendingStat) reject(notFoundReason);
+      else if (trendingStat) resolve(trendingStat);
+    }, milisecs);
+  });
+};
+
 function displayVideoStats(data) {
   const { likes, dislikes, views } = data;
   return `
@@ -77,12 +91,24 @@ function displayVideoStats(data) {
 fetchVideoInfo(2, 1)
   .then(video => {
     videoGridContainer.innerHTML = `<img src="${video.videoUrl}" class="thumbnail">`;
+    const date = video.uploadDate;
+    console.log(date)
+
     return fetchVideoStats(video.creatorId, video.videoId);
   })
   .then(stats => {
     console.log(stats);
     const statsHtml = displayVideoStats(stats);
     videoGridContainer.innerHTML += statsHtml;
+    return fetchTrendingStat(stats.creatorId, stats.videoId);
+  })
+  .then(trendingStat => {
+    let generatedHtml = ''
+    if (trendingStat.overallRank <= trendingStat.categoryRank)
+      generatedHtml = `#${trendingStat.overallRank} on Trending`
+    else if (trendingStat.categoryRank < trendingStat.overallRank)
+      generatedHtml = `#${trendingStat.categoryRank} on Trending for ${trendingStat.category}`
+    videoGridContainer.innerHTML += generatedHtml;
   })
   .catch(error => {
     videoGridContainer.innerHTML = `<p>Error: ${error}</p>`;
