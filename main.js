@@ -19,11 +19,11 @@
 //Trending videos
 //Random videos
 
-import { videos } from "./data/videos.js";
-import { creators } from "./data/creators.js";
-import { videoStats } from "./data/videoStats.js";
-import { trendingVideos } from "./data/trendingVideos.js";
-import { generateRandomMilisecs, simulateNetworkError, simulateServerError } from "./middleware.js";
+import { videos } from "./models/videos.js";
+import { creators } from "./models/creators.js";
+import { videoStats } from "./models/videoStats.js";
+import { trendingVideos } from "./models/trendingVideos.js";
+import { generateRandomMilisecs, simulateNetworkError, simulateServerError } from "./utils/apiSimulator.js";
 
 const videoGridContainer = document.querySelector('.js-video-grid');
 const networkReason = 'Request rejected due to Network Error';
@@ -90,33 +90,23 @@ function fetchCreatorInfo() {
   });
 };
 
-function displayVideoStats(data) {
-  const { likes, dislikes, views } = data;
-  return `
-  <section class="video-stats">
-  <span class="video-stat"><img class="icons" src="../assets/icons/thumbs-up.svg">${likes}</span>
-  <span class="video-stat"><img class="icons" src="../assets/icons/thumbs-down.svg">${dislikes}</span>
-  <span class="video-stat">${views} views</span>
-  </section>
-  `;
-};
-
 
 fetchVideoInfo()
   .then(video => {
-    videoGridContainer.innerHTML = `<img src="${video.videoUrl}" class="thumbnail">`;
-    const date = video.uploadDate;
-    console.log(date)
-
     return Promise.all([
       fetchCreatorInfo(),
       fetchVideoStats(),
       fetchTrendingStats()
-    ])
-
+    ]).then(results => ({ video, results }))
   })
-  .then(results => {
-    console.log(results);
+  .then(({ video, results }) => {
+    const creatorInfo = results[0];
+    const videoStats = results[1];
+    const trendingStats = results[2];
+
+    const generatedHtml = renderMainSection(video, creatorInfo, videoStats, trendingStats);
+    videoGridContainer.innerHTML += generatedHtml;
+
     // const statsHtml = displayVideoStats(stats);
     // videoGridContainer.innerHTML += statsHtml;
     // return fetchTrendingStats(stats.creatorId, stats.videoId);
@@ -131,6 +121,7 @@ fetchVideoInfo()
   // })
   .catch(error => {
     videoGridContainer.innerHTML = `<p>Error: ${error}</p>`;
+    console.log(error)
   })
 
 
