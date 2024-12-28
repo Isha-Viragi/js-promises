@@ -113,3 +113,17 @@ function calculateDateStamp() {
   }
 
 }
+
+
+function renderTimePassed(timePassed, unitOfTime) {
+  if (timePassed === 1) return `${timePassed} ${unitOfTime}`
+  else return `${timePassed} ${unitOfTime}s`
+}
+
+function claculateMinutesPassed(uploadDate, today) {
+  return (60 - uploadDate.getMinutes()) + today.getMinutes();
+}
+
+function claculateHoursPassed(uploadDate, today) {
+  return (24 - uploadDate.getHours()) + today.getHours();
+}
