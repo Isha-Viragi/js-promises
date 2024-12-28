@@ -8,3 +8,6 @@ body{
   margin: 0px 120px;
 }
 
+button:hover{
+  cursor: pointer;
+}
