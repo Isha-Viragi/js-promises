@@ -3,7 +3,7 @@ export const videoStats = [
     creatorId: 1,
     videoId: 1,
     likes: '18M',
-    dislikes: '150K',
+    dislikes: '15K',
     views: '1.6B'
   },
   {
