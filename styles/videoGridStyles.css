@@ -1,30 +1,136 @@
 .video-grid{
-  margin: 26px 0px;
-  background-color: rgb(198, 82, 82);
+  margin: 80px 0px;
   display: flex;
   flex-direction: column;
   gap: 26px;
   justify-content: start;
 }
 
-.thumbnail{
-  height: 420px;
-  width: 740px;
-  object-fit: cover;
+.main-video-section{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 695px;
 }
 
-.video-stats{
+.top-section{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 14px;
 }
-.video-stat{
+.main-video-thumbnail{
+  height: 390px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+.main-video-title{
+  font-size: 20px;
+}
+
+.middle-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.middle-left-section{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.creator-container{
   display: flex;
   align-items: center;
-  gap: 6px;
-  background-color: rgb(234, 156, 156);
-  padding: 8px 14px;
+}
+.creator-profile{
+  height: 42px;
+  width: 42px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+.creator-info-container{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-left: 12px;
+}
+.creator-name{
+  font-weight: bold;
+}
+.subscriber-count{
+  color: rgb(105, 105, 105);
+  font-size: 13px;
 }
 
+.subscribe-button{
+  font-size: 13px;
+  font-weight: 600;
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 25px;
+}
+.subscribe-button:hover{
+  background-color: rgb(57, 57, 57);
+}
+
+.middle-right-section{
+  display: flex;
+  gap: 8px;
+}
+.like-dislike-buttons{
+  display: flex;
+}
+.like-button,
+.dislike-button,
+.share-button{
+  background-color: rgb(239, 239, 239);
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.like-button:hover,
+.dislike-button:hover,
+.share-button:hover{
+  background-color: rgb(220, 220, 220);
+}
+.like-button{
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+
+  border-right: solid;
+  border-right-width: 1px;
+  border-right-color: rgb(208, 208, 208);
+}
+.dislike-button{
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.share-button{
+  border-radius: 20px;
+}
 .icons{
-  height: 24px;
+  height: 22px;
+}
+
+
+.bottom-section{
+  background-color:rgb(239, 239, 239);
+  padding: 12px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.views{
+  font-weight: bold;
+}
+.description{
+  font-size: 15px;
 }
