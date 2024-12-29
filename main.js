@@ -24,6 +24,7 @@ import { creators } from "./models/creators.js";
 import { videoStats } from "./models/videoStats.js";
 import { trendingVideos } from "./models/trendingVideos.js";
 import { generateRandomMilisecs, simulateNetworkError, simulateServerError } from "./utils/apiSimulator.js";
+import { renderMainVideoSection } from "./views/renderMainVideoSection.js";
 
 const videoGridContainer = document.querySelector('.js-video-grid');
 const networkReason = 'Request rejected due to Network Error';
@@ -104,21 +105,9 @@ fetchVideoInfo()
     const videoStats = results[1];
     const trendingStats = results[2];
 
-    const generatedHtml = renderMainSection(video, creatorInfo, videoStats, trendingStats);
+    const generatedHtml = renderMainVideoSection(video, creatorInfo, videoStats, trendingStats);
     videoGridContainer.innerHTML += generatedHtml;
-
-    // const statsHtml = displayVideoStats(stats);
-    // videoGridContainer.innerHTML += statsHtml;
-    // return fetchTrendingStats(stats.creatorId, stats.videoId);
   })
-  // .then(trendingStat => {
-  //   let generatedHtml = ''
-  //   if (trendingStat.overallRank <= trendingStat.categoryRank)
-  //     generatedHtml = `#${trendingStat.overallRank} on Trending`
-  //   else if (trendingStat.categoryRank < trendingStat.overallRank)
-  //     generatedHtml = `#${trendingStat.categoryRank} on Trending for ${trendingStat.category}`
-  //   videoGridContainer.innerHTML += generatedHtml;
-  // })
   .catch(error => {
     videoGridContainer.innerHTML = `<p>Error: ${error}</p>`;
     console.log(error)
@@ -132,4 +121,10 @@ fetchVideoInfo()
 //For arrow functions in methods, if {}, need to RETURN
 //Example: With .find() or .then()
 //  find (video => video.id === 1) no RETURN needed
-//  find (video => {return video.id === 1}) RETURN needed 
+//  find (video => {return video.id === 1}) RETURN needed
+
+//How to truncate paragraphs using css webkit and overflow hidden
+
+//TEXT-align for aligning text inside element
+
+//pre-wrap to keep the line-breaks visible in html when using template strings

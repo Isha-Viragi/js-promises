@@ -1,4 +1,4 @@
-function calculateDateStamp() {
+export function calculateDateStamp() {
   const today = new Date;
   const uploadDate = new Date;
 
