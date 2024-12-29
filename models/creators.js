@@ -9,7 +9,7 @@ export const creators = [
   {
     creatorId: 2,
     creatorProfile: '../assets/profiles/creators/pets-island-profile.svg',
-    creatorName: 'Pets Island',
+    creatorName: 'FailArmy',
     subscriberCount: '18.7K',
     videoCount: '333'
   },
