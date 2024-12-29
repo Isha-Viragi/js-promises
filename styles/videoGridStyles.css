@@ -126,7 +126,7 @@
   padding-top: 15px;
   padding-left: 14px;
   padding-right: 14px;
-  padding-bottom: 32px;
+  padding-bottom: 28px;
 
   display: flex;
   flex-direction: column;
@@ -140,7 +140,8 @@
 .date-stamp,
 .trending-stats,
 .description,
-.show-text{
+.show-more,
+.show-less{
   font-size: 14px;
 }
 .views,
@@ -160,7 +161,8 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.show-text{
+.show-more,
+.show-less{
   font-weight: bold;
 }
 .hide-text{
