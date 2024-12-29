@@ -121,16 +121,48 @@
 
 .bottom-section{
   background-color:rgb(239, 239, 239);
-  padding: 12px;
   border-radius: 20px;
+  border: none;
+  padding-top: 15px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-bottom: 32px;
 
   display: flex;
   flex-direction: column;
   gap: 6px;
+
+  text-align: start;
 }
-.views{
+.bottom-top-container{
+}
+.views,
+.date-stamp,
+.trending-stats,
+.description,
+.show-text{
+  font-size: 14px;
+}
+.views,
+.date-stamp{
   font-weight: bold;
 }
+.trending-stats{
+  color: rgb(100, 100, 100);
+  margin-left: 6px;
+}
 .description{
-  font-size: 15px;
+  white-space: pre-wrap;
+}
+.description-show-less{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.show-text{
+  font-weight: bold;
+}
+.hide-text{
+  display: none;
 }
