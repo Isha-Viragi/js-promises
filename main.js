@@ -24,14 +24,14 @@ import { creators } from "./models/creators.js";
 import { videoStats } from "./models/videoStats.js";
 import { trendingVideos } from "./models/trendingVideos.js";
 import { generateRandomMilisecs, simulateNetworkError, simulateServerError } from "./utils/apiSimulator.js";
-import { renderMainVideoSection } from "./views/renderMainVideoSection.js";
+import { generateMainVideoSection, attachEventListeners } from "./views/renderMainVideoSection.js";
 
 const videoGridContainer = document.querySelector('.js-video-grid');
 const networkReason = 'Request rejected due to Network Error';
 const serverReason = 'Request rejected due to Server Error';
 const notFoundReason = 'Video Not Found';
 
-const creatorId = 1;
+const creatorId = 2;
 const videoId = 1;
 
 
@@ -105,13 +105,17 @@ fetchVideoInfo()
     const videoStats = results[1];
     const trendingStats = results[2];
 
-    const generatedHtml = renderMainVideoSection(video, creatorInfo, videoStats, trendingStats);
+    const generatedHtml = generateMainVideoSection(video, creatorInfo, videoStats, trendingStats);
     videoGridContainer.innerHTML += generatedHtml;
+  })
+  .then(() => {
+    attachEventListeners();
   })
   .catch(error => {
     videoGridContainer.innerHTML = `<p>Error: ${error}</p>`;
     console.log(error)
   })
+
 
 
 
