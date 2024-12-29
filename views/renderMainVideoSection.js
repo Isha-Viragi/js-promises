@@ -1,7 +1,6 @@
+import { calculateDateStamp } from "../controllers/dateStampModule.js"
 
-
-
-function renderMainSection(video, creatorInfo, videoStats, trendingStats) {
+export function renderMainVideoSection(video, creatorInfo, videoStats, trendingStats) {
   return `
   <section class="main-video-section">
     <div class="top-section">
@@ -42,11 +41,31 @@ function renderMainSection(video, creatorInfo, videoStats, trendingStats) {
       </div>
     </div>
 
-    <div class="bottom-section">
-      <p class="views">${videoStats.views} views ${calculateDateStamp()} ago</p>
-      <p class="description">${video.description}</p>
-    </div>
+    <button class="bottom-section">
+      <div class="bottom-top-container">
+        <span class="views">
+        ${videoStats.views} views 
+        </span>
+        <span class="date-stamp">
+        ${calculateDateStamp()} ago
+        </span>
+        <span class="trending-stats">
+        ${renderTrendingStat(trendingStats)}
+        </span>
+      </div>
+      <p class="description description-show-less">${video.description}</p>
+      <span class="show-text">Show more</span>
+      <span class="show-text hide-text">Show less</span>
+    </button>
+
   </section>
   `
 
-}
+};
+
+function renderTrendingStat(trendingStat) {
+  if (trendingStat.overallRank <= trendingStat.categoryRank)
+    return `# ${trendingStat.overallRank} on Trending`
+  else if (trendingStat.categoryRank < trendingStat.overallRank)
+    return `# ${trendingStat.categoryRank} on Trending for ${trendingStat.category}`
+};
