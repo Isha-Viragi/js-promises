@@ -1,6 +1,6 @@
 import { calculateDateStamp } from "../controllers/dateStampModule.js"
 
-export function renderMainVideoSection(video, creatorInfo, videoStats, trendingStats) {
+export function generateMainVideoSection(video, creatorInfo, videoStats, trendingStats) {
   return `
   <section class="main-video-section">
     <div class="top-section">
@@ -41,7 +41,7 @@ export function renderMainVideoSection(video, creatorInfo, videoStats, trendingS
       </div>
     </div>
 
-    <button class="bottom-section">
+    <button class="bottom-section js-bottom-section">
       <div class="bottom-top-container">
         <span class="views">
         ${videoStats.views} views 
@@ -50,22 +50,44 @@ export function renderMainVideoSection(video, creatorInfo, videoStats, trendingS
         ${calculateDateStamp()} ago
         </span>
         <span class="trending-stats">
-        ${renderTrendingStat(trendingStats)}
+        ${generateTrendingStat(trendingStats)}
         </span>
       </div>
-      <p class="description description-show-less">${video.description}</p>
-      <span class="show-text">Show more</span>
-      <span class="show-text hide-text">Show less</span>
+      <p class="description description-show-less js-description">${video.description}</p>
+      <span class="show-more js-show-more">Show more</span>
+      <span class="show-less hide-text js-show-less">Show less</span>
     </button>
 
   </section>
-  `
+  `;
 
 };
 
-function renderTrendingStat(trendingStat) {
+function generateTrendingStat(trendingStat) {
   if (trendingStat.overallRank <= trendingStat.categoryRank)
-    return `# ${trendingStat.overallRank} on Trending`
+    return `# ${trendingStat.overallRank} on Trending`;
   else if (trendingStat.categoryRank < trendingStat.overallRank)
-    return `# ${trendingStat.categoryRank} on Trending for ${trendingStat.category}`
+    return `# ${trendingStat.categoryRank} on Trending for ${trendingStat.category}`;
+};
+
+export function attachEventListeners() {
+  const descriptionBox = document.querySelector('.js-bottom-section');
+  const showMore = document.querySelector('.js-show-more');
+  const showLess = document.querySelector('.js-show-less');
+  const description = document.querySelector('.js-description');
+
+  descriptionBox.addEventListener('click', () => {
+    //Will show more
+    if (description.classList.contains('description-show-less')) {
+      description.classList.remove('description-show-less');
+      showMore.classList.add('hide-text');
+      showLess.classList.remove('hide-text');
+    }
+    //Will show less
+    else {
+      description.classList.add('description-show-less');
+      showMore.classList.remove('hide-text');
+      showLess.classList.add('hide-text');
+    };
+  });
 };
