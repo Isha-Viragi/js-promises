@@ -126,5 +126,79 @@ robek, Brad Christensen, Asija Newns, Pedro Castro Verdezoto, Lucas Watkins, dam
     creatorId: 3
   },
 
+  {
+    videoId: 1,
+    videoUrl: '../assets/videos/nasa.png',
+    title: `NASA's Artemis Program: Back to the Moon`,
+    description: `NASA's Artemis program aims to land the first woman and next man on the Moon by 2024 and establish a sustainable human presence on the Moon by the end of the decade. 
+Learn more about how we're going beyond with Artemis:
+https://www.nasa.gov/specials/artemis/
+
+🔗 Explore More:
+- Artemis Program Overview: https://www.nasa.gov/artemis
+- Lunar Gateway: https://www.nasa.gov/gateway
+- Human Landing System: https://www.nasa.gov/hls
+- Space Launch System: https://www.nasa.gov/sls
+
+🚀 Follow NASA for Updates:
+- Twitter: https://twitter.com/NASAArtemis
+- Instagram: https://www.instagram.com/nasaartemis
+- YouTube: https://www.youtube.com/user/NASAtelevision
+
+Join us as we prepare for humanity's next giant leap! 🌕`,
+    uploadDate: new Date,
+    creatorId: 4
+  },
+
+  {
+    videoId: 1,
+    videoUrl: '../assets/videos/cooking.png',
+    title: '10-Minute Vegan Recipes',
+    description: `Looking for quick and easy vegan meals? 🍴 This video covers three simple, delicious recipes that you can prepare in under 10 minutes. Perfect for a busy day!
+
+🌱 Recipes Included:
+1️⃣ Creamy Avocado Toast
+2️⃣ Chickpea Salad Wrap
+3️⃣ Banana Oat Smoothie Bowl
+
+✨ Ingredients List and Steps:
+- Visit: https://quickveganrecipes.com
+
+🎥 Follow Us for More Vegan Inspiration:
+- Instagram: https://instagram.com/quickvegan
+- TikTok: https://tiktok.com/@quickvegan
+- Facebook: https://facebook.com/quickvegan
+
+Let us know which recipe is your favorite in the comments below!`,
+    uploadDate: new Date,
+    creatorId: 5
+  },
+
+  {
+    videoId: 1,
+    videoUrl: '../assets/videos/minecraft.png',
+    title: 'Minecraft Survival Tips and Tricks',
+    description: `🌟 Master Minecraft survival mode with these essential tips! Whether you're a beginner or a seasoned player, you'll find strategies to help you thrive in the wilderness.
+
+🛠️ What You’ll Learn:
+- Building the ultimate starter base
+- Efficient mining techniques
+- Farming for sustainable food
+- Surviving hostile mobs at night
+
+🔗 Additional Resources:
+- Best Seeds for Survival: https://minecraftseeds.com
+- Crafting Guide: https://minecraftwiki.com/crafting
+
+🎮 Connect with Us:
+- Discord: https://discord.gg/minecraft
+- Twitter: https://twitter.com/minecrafttips
+- YouTube: https://youtube.com/minecraftsurvivaltips
+
+Hit that like button if these tips helped you! 🏠`,
+    uploadDate: new Date,
+    creatorId: 6
+  }
+
 
 ]

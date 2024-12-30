@@ -19,5 +19,29 @@ export const creators = [
     creatorName: 'Kurzgesagt',
     subscriberCount: '23.4M',
     videoCount: '264'
+  },
+  {
+    creatorId: 4,
+    creatorProfile: '../assets/profiles/creators/nasa-profile.png',
+    creatorName: 'NASA Artemis',
+    subscriberCount: '12.3M',
+    videoCount: '1,245'
+  },
+
+  {
+    creatorId: 5,
+    creatorProfile: '../assets/profiles/creators/quick-vegan-profile.png',
+    creatorName: 'Quick Vegan',
+    subscriberCount: '735K',
+    videoCount: '410'
+  },
+
+  {
+    creatorId: 6,
+    creatorProfile: '../assets/profiles/creators/minecraft-tips-profile.png',
+    creatorName: 'Minecraft Tips',
+    subscriberCount: '2.8M',
+    videoCount: '512'
   }
+
 ]
