@@ -31,9 +31,8 @@ const networkReason = 'Request rejected due to Network Error';
 const serverReason = 'Request rejected due to Server Error';
 const notFoundReason = 'Video Not Found';
 
-const creatorId = 2;
+const creatorId = 4;
 const videoId = 1;
-
 
 function fetchVideoInfo() {
 
@@ -72,8 +71,7 @@ function fetchTrendingStats() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const trendingStat = trendingVideos.find(video => video.creatorId === creatorId && video.videoId === videoId);
-      if (!trendingStat) reject(notFoundReason);
-      else if (trendingStat) resolve(trendingStat);
+      resolve(trendingStat);
     }, milisecs);
   });
 };

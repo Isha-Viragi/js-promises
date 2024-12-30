@@ -64,6 +64,8 @@ export function generateMainVideoSection(video, creatorInfo, videoStats, trendin
 };
 
 function generateTrendingStat(trendingStat) {
+  if (!trendingStat)
+    return '';
   if (trendingStat.overallRank <= trendingStat.categoryRank)
     return `# ${trendingStat.overallRank} on Trending`;
   else if (trendingStat.categoryRank < trendingStat.overallRank)
