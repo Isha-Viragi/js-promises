@@ -1,6 +1,6 @@
-export function calculateDateStamp() {
+export function calculateDateStamp(video) {
   const today = new Date;
-  const uploadDate = new Date;
+  const uploadDate = video.uploadDate;
 
   const monthsArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   let pointer;
@@ -11,10 +11,7 @@ export function calculateDateStamp() {
   // today.setFullYear(2024);
   // today.setMonth(11)
   uploadDate.setHours(uploadDate.getHours() + 5)
-  today.setFullYear(2025);
-  today.setMonth(0);
-  today.setDate(2)
-  console.log('today: ', today)
+
   console.log('uDate: ', uploadDate)
 
   let timePassed;

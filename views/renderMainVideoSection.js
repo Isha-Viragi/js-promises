@@ -47,7 +47,7 @@ export function generateMainVideoSection(video, creatorInfo, videoStats, trendin
         ${videoStats.views} views 
         </span>
         <span class="date-stamp">
-        ${calculateDateStamp()} ago
+        ${calculateDateStamp(video)} ago
         </span>
         <span class="trending-stats">
         ${generateTrendingStat(trendingStats)}

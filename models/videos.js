@@ -10,7 +10,7 @@ Follow this link to get your copy and listen to Rick’s ‘Never’ playlist �
 https://linktr.ee/rickastleynever
     
 “Never Gonna Give You Up” was a global smash on its release in July 1987, topping the charts in 25 countries including Rick’s native UK and the US Billboard Hot 100.  It also won the Brit Award for Best single in 1988. Stock Aitken and Waterman wrote and produced the track which was the lead-off single and lead track from Rick’s debut LP “Whenever You Need Somebody”.  The album was itself a UK number one and would go on to sell over 15 million copies worldwide.`,
-    uploadDate: new Date,
+    uploadDate: new Date(2009, 9, 25),
     creatorId: 1
   },
 
@@ -45,7 +45,7 @@ This is Happening -    / thisishappening
 FailArmy is the world’s number one source for epic fail videos and hilarious compilations. We’re powered by fan submissions and feedback from all around the world, with over 30 million fans across digital platforms! 
 
 To license any of the videos shown on FailArmy, please visit Jukin Media at http://bit.ly/jukinlicense.`,
-    uploadDate: new Date,
+    uploadDate: new Date(2020, 1, 5),
     creatorId: 2
   },
 
@@ -122,7 +122,7 @@ Thank you!
 Many Thanks to our wonderful Patreons (from http://kgs.link/patreon) who support us every month and made this video possible:
 robek, Brad Christensen, Asija Newns, Pedro Castro Verdezoto, Lucas Watkins, damien perolle, Fab Cars, alomanola, MikyF2K, Mithilesh Hinge, okor, Lucan, The Gnome, Kyung Geun Kim, Misa Brass, Martin Hippenstiel, Morgan, Anthony Distel, Filip Rogowski, Gabe, Tobias Hofmann, Zaret, Bootools, David Earl, Ben Hamilton, still [Redacted], polyploidy, Elgenzay, Jared, Soda celeste, Felix, Benjamin Goodrich, Taher Rangwala, Jesse Barnes, WillowTree, DarkKot 686, Aaron Phillips, Luc Royal, Lukas Meier, esamoth, Smithius, Mermor, Laura Kühne, Tyler Fendone, gassi30, Andres Arce, Suzanne frounfelter, Akito Nozaki, SirRender, Space, Daniel Hofmeister, Dan M, Jacob Culp, ReyesX77, Aaron T Haltman, DJ Dubbes, SchnarcheNoah, Keira Standing, Steven Lamontagne, Bliss, David Anderson, Uhh Uhhh Uhhh, The Paul Family
 `,
-    uploadDate: new Date,
+    uploadDate: new Date(2023, 10, 10),
     creatorId: 3
   },
 
@@ -146,7 +146,7 @@ https://www.nasa.gov/specials/artemis/
 - YouTube: https://www.youtube.com/user/NASAtelevision
 
 Join us as we prepare for humanity's next giant leap! 🌕`,
-    uploadDate: new Date,
+    uploadDate: new Date(2025, 1, 10),
     creatorId: 4
   },
 
@@ -170,7 +170,7 @@ Join us as we prepare for humanity's next giant leap! 🌕`,
 - Facebook: https://facebook.com/quickvegan
 
 Let us know which recipe is your favorite in the comments below!`,
-    uploadDate: new Date,
+    uploadDate: new Date(2023, 0, 21),
     creatorId: 5
   },
 
@@ -196,7 +196,7 @@ Let us know which recipe is your favorite in the comments below!`,
 - YouTube: https://youtube.com/minecraftsurvivaltips
 
 Hit that like button if these tips helped you! 🏠`,
-    uploadDate: new Date,
+    uploadDate: new Date(2012, 6, 20),
     creatorId: 6
   }
 
