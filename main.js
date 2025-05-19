@@ -31,7 +31,7 @@ const networkReason = 'Request rejected due to Network Error';
 const serverReason = 'Request rejected due to Server Error';
 const notFoundReason = 'Video Not Found';
 
-const creatorId = 4;
+const creatorId = Math.floor(Math.random() * 6) + 1;
 const videoId = 1;
 
 function fetchVideoInfo() {
