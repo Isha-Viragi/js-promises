@@ -165,6 +165,9 @@
 .show-less{
   font-weight: bold;
 }
+.show-less{
+  margin-top: 10px;
+}
 .hide-text{
   display: none;
 }
