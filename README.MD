@@ -1,4 +1,4 @@
-# 🎥 YouTube Clone (JS Promises Practice)
+# YouTube Clone (JS Promises Practice)
 
 > A JavaScript-based simulation of YouTube-style data loading using **Promises**, built from scratch as a hands-on learning exercise.
 
